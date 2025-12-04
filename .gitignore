@@ -1,0 +1,59 @@
+﻿###############################
+# Visual Studio / .NET Ignore
+###############################
+
+# Build results
+bin/
+obj/
+
+# WPF generated files
+*.g.cs
+*.g.i.cs
+*.baml
+
+# Roslyn cache
+*.ide/
+
+# Visual Studio settings
+.vs/
+*.user
+*.userosscache
+*.suo
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# Publish output
+PublishProfiles/
+publish/
+
+# Debug / Release
+Debug/
+Release/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Local DB
+*.mdf
+*.ldf
+
+# Backup & Autosave
+*.bak
+*.backup
+
+# Certificates
+*.pfx
+
+

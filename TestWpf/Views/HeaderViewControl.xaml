@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="TestWpf.Views.HeaderViewControl" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+
+    <Grid Background="{StaticResource HeaderBrush}" Height="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Resources/Icons/AppLogo.png"
+       Width="40" Height="40"
+       Stretch="Uniform"
+       VerticalAlignment="Center"
+       HorizontalAlignment="Left"/>
+
+        <!-- TITLE -->
+        <TextBlock Grid.Column="1"
+                   Text="{Binding Title}"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="20"
+                   VerticalAlignment="Center"
+                   Margin="10,0"/>
+
+        <!-- USER BUTTON -->
+        <Button x:Name="UserButton"
+                Grid.Column="2"
+                Width="40" Height="40"
+                Margin="10"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                BorderThickness="0"
+                Cursor="Hand"
+                Click="UserButton_Click">
+            <Viewbox Width="22" Height="22">
+                <Path Data="M12,12A5,5 0 1 0 12,2A5,5 0 1 0 12,12M12,14C9.33,14 2,15.34 2,18V20H22V18C22,15.34 14.67,14 12,14Z"
+                      Fill="White"/>
+            </Viewbox>
+        </Button>
+
+        <!-- USER DETAILS POPUP -->
+        <Popup x:Name="UserPopup"
+               Placement="Bottom"
+               PlacementTarget="{Binding ElementName=UserButton}"
+               StaysOpen="False"
+               AllowsTransparency="True">
+            <Border Background="#2D2D30"
+                    BorderBrush="#4A4A4A"
+                    BorderThickness="1"
+                    Padding="10"
+                    CornerRadius="6"
+                    Margin="0,5">
+                <StackPanel Width="200">
+                    <TextBlock Text="User Details"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               FontSize="16"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock Text="{Binding AdminProfile.Name,Mode=TwoWay, StringFormat=Name: {0}, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.Email, Mode=TwoWay, StringFormat=Email: {0}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.MessName, Mode=TwoWay, StringFormat=Mess Name: {0}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.Address, Mode=TwoWay, StringFormat=Address: {0}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.PhoneNumber,Mode=TwoWay, StringFormat=Phone: {0}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.Duration,Mode=TwoWay, StringFormat=Duration: {0}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.Price,Mode=TwoWay, StringFormat=Price: {0:C}}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.SubscriptionExpiry,Mode=TwoWay, StringFormat=Expiry: {0:dd/MM/yyyy}}" Foreground="White" Margin="0,3"/>
+
+                    <Separator Margin="0,10"/>
+                    <Button Content="Logout"
+                            Width="100"
+                            Background="#444"
+                            Foreground="White"
+                            HorizontalAlignment="Left"
+                            Margin="0,5"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+    </Grid>
+</UserControl>

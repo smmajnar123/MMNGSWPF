@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Primary App Color -->
+    <Color x:Key="PrimaryColor">white</Color>
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+
+    <!-- Sidebar -->
+    <Color x:Key="SidebarColor">#2D2D30</Color>
+    <SolidColorBrush x:Key="SidebarBrush" Color="{StaticResource SidebarColor}"/>
+
+    <!-- Header -->
+    <Color x:Key="HeaderColor">#007ACC</Color>
+    <SolidColorBrush x:Key="HeaderBrush" Color="{StaticResource HeaderColor}"/>
+
+    <!-- Footer -->
+    <Color x:Key="FooterColor">#F1F1F1</Color>
+    <SolidColorBrush x:Key="FooterBrush" Color="{StaticResource FooterColor}"/>
+
+    <!-- Right Panel -->
+    <Color x:Key="RightPanelColor">#F9F9F9</Color>
+    <SolidColorBrush x:Key="RightPanelBrush" Color="{StaticResource RightPanelColor}"/>
+
+    <!-- GridSplitter -->
+    <Color x:Key="SplitterColor">Gray</Color>
+    <SolidColorBrush x:Key="SplitterBrush" Color="{StaticResource SplitterColor}"/>
+
+</ResourceDictionary>

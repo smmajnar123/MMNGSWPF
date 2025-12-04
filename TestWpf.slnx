@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../MMNGS/MMNGS.DataAccess/MMNGS.DataAccess.csproj" />
+  <Project Path="../MMNGS/MMNGS.Repository/MMNGS.Repository.csproj" />
+  <Project Path="../MMNGS/MMNGS.Services/MMNGS.Services.csproj" />
+  <Project Path="TestWpf/TestWpf.csproj" />
+</Solution>

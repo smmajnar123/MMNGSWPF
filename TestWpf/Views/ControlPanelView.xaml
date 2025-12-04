@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="TestWpf.Views.ControlPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:TestWpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Border BorderBrush="Blue" BorderThickness="2" CornerRadius="5" Padding="5" Margin="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Top buttons panel -->
+                <RowDefinition Height="*"/>
+                <!-- Content / main panel -->
+                <RowDefinition Height="Auto"/>
+                <!-- Footer / params -->
+            </Grid.RowDefinitions>
+
+            <!-- Top Buttons Panel -->
+            <Grid Grid.Row="0" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 4 Groups of Buttons -->
+                <ItemsControl Grid.Column="0" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.Items>
+                        <Button Content="Button 1" Margin="1"/>
+                        <Button Content="Button 2" Margin="1"/>
+                        <Button Content="Button 3" Margin="1"/>
+                        <Button Content="Button 4" Margin="1"/>
+                        <Button Content="Button 5" Margin="1"/>
+                        <Button Content="Button 6" Margin="1"/>
+                        <Button Content="Button 7" Margin="1"/>
+                        <Button Content="Button 8" Margin="1"/>
+                        <Button Content="Button 9" Margin="1"/>
+                        <Button Content="Button 10" Margin="1"/>
+                        <Button Content="Button 11" Margin="1"/>
+                    </ItemsControl.Items>
+                </ItemsControl>
+
+                <ItemsControl Grid.Column="1" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.Items>
+                        <!-- Repeat Buttons 1-11 here -->
+                        <Button Content="Button 1" Margin="1"/>
+                        <Button Content="Button 2" Margin="1"/>
+                        <Button Content="Button 3" Margin="1"/>
+                        <Button Content="Button 4" Margin="1"/>
+                        <Button Content="Button 5" Margin="1"/>
+                        <Button Content="Button 6" Margin="1"/>
+                        <Button Content="Button 7" Margin="1"/>
+                        <Button Content="Button 8" Margin="1"/>
+                        <Button Content="Button 9" Margin="1"/>
+                        <Button Content="Button 10" Margin="1"/>
+                        <Button Content="Button 11" Margin="1"/>
+                    </ItemsControl.Items>
+                </ItemsControl>
+
+                <ItemsControl Grid.Column="2" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.Items>
+                        <!-- Repeat Buttons 1-11 here -->
+                        <Button Content="Button 1" Margin="1"/>
+                        <Button Content="Button 2" Margin="1"/>
+                        <Button Content="Button 3" Margin="1"/>
+                        <Button Content="Button 4" Margin="1"/>
+                        <Button Content="Button 5" Margin="1"/>
+                        <Button Content="Button 6" Margin="1"/>
+                        <Button Content="Button 7" Margin="1"/>
+                        <Button Content="Button 8" Margin="1"/>
+                        <Button Content="Button 9" Margin="1"/>
+                        <Button Content="Button 10" Margin="1"/>
+                        <Button Content="Button 11" Margin="1"/>
+                    </ItemsControl.Items>
+                </ItemsControl>
+
+                <ItemsControl Grid.Column="3" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.Items>
+                        <!-- Repeat Buttons 1-11 here -->
+                        <Button Content="Button 1" Margin="1"/>
+                        <Button Content="Button 2" Margin="1"/>
+                        <Button Content="Button 3" Margin="1"/>
+                        <Button Content="Button 4" Margin="1"/>
+                        <Button Content="Button 5" Margin="1"/>
+                        <Button Content="Button 6" Margin="1"/>
+                        <Button Content="Button 7" Margin="1"/>
+                        <Button Content="Button 8" Margin="1"/>
+                        <Button Content="Button 9" Margin="1"/>
+                        <Button Content="Button 10" Margin="1"/>
+                        <Button Content="Button 11" Margin="1"/>
+                    </ItemsControl.Items>
+                </ItemsControl>
+
+            </Grid>
+
+            <!-- Main Panel -->
+            <views:SetParamViewControl Grid.Row="1" />
+
+        </Grid>
+    </Border>
+</UserControl>

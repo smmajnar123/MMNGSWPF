@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MMNGS\MMNGS.DataAccess\MMNGS.DataAccess.csproj" />
+    <ProjectReference Include="..\..\MMNGS\MMNGS.Repository\MMNGS.Repository.csproj" />
+    <ProjectReference Include="..\..\MMNGS\MMNGS.Services\MMNGS.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CommanControl\" />
+    <Folder Include="CustomControl\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MMNGSAppText.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MMNGSAppText.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="MMNGSAppText.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MMNGSAppText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
