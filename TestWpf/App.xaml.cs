@@ -40,16 +40,13 @@ namespace TestWpf
 
             // ViewModels
             services.AddTransient<HeaderViewModel>();
+            services.AddTransient<UserViewModel>();
             services.AddTransient<SideBarViewModel>();
             services.AddTransient<MainViewModel>();
             services.AddSingleton<MainWindowViewModel>(); // singleton for main window
 
             // Views
             services.AddSingleton<MainWindow>(sp =>new MainWindow(sp.GetRequiredService<MainWindowViewModel>()));
-
-            services.AddSingleton<MainViewControl>();
-
-            services.AddSingleton<SideBarViewControl>();
         }
 
         protected override async void OnStartup(StartupEventArgs e)

@@ -8,8 +8,7 @@ namespace TestWpf.Helpers.Enums
     {
         Dashboard,
         Users,
-        Billing,
-        Transactions,
+        UserProfiles,
         Settings
     }
 }

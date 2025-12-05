@@ -4,17 +4,17 @@
              xmlns:views="clr-namespace:TestWpf.Views">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150" MinWidth="150"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <views:SideBarViewControl Grid.Column="0" DataContext="{Binding SideBarViewModel}" />
+        <views:SideBarViewControl Grid.Column="0" DataContext="{Binding SideBarViewModel, Mode=TwoWay}" />
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" ShowsPreview="True" Cursor="SizeWE"/>
-        <TabControl Grid.Column="2" ItemsSource="{Binding Tabs}" SelectedIndex="0">
+        <TabControl Grid.Column="2" ItemsSource="{Binding Tabs}" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Header}" />
+                    <TextBlock Padding="5" Text="{Binding Header}" />
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
