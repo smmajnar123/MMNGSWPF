@@ -20,15 +20,15 @@ namespace TestWpf.ViewModels
         public SideBarViewModel SideBarViewModel { get; set; }
         public ObservableCollection<ContentTabItemModel> Tabs { get; }
 
-        private int _selectedIndex;
+        private int _selectedTabIndex;
         public int SelectedTabIndex
         {
-            get => _selectedIndex;
+            get => _selectedTabIndex;
             set
             {
-                if (_selectedIndex != value)
+                if (_selectedTabIndex != value)
                 {
-                    _selectedIndex = value;
+                    _selectedTabIndex = value;
                     OnPropertyChanged();
                     UpdateSidebarSelection();
                 }
@@ -48,6 +48,7 @@ namespace TestWpf.ViewModels
             {
                 TabEnum.Users => CreateUserTab(),
                 TabEnum.UserProfiles => CreateUserProfilesTab(),
+                TabEnum.Dashboard => CreateDashBoardTab(),
                 _ => new ContentTabItemModel
                 {
                     Header = header,
@@ -95,6 +96,14 @@ namespace TestWpf.ViewModels
                 {
                     DataContext = SideBarViewModel.UserViewModel
                 }
+            };
+        }
+        private ContentTabItemModel CreateDashBoardTab()
+        {
+            return new ContentTabItemModel
+            {
+                Header = TabEnum.Dashboard,
+                Content = new DashboardViewControl()
             };
         }
 

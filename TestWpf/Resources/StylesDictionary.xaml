@@ -10,8 +10,10 @@
     <SolidColorBrush x:Key="SidebarBrush" Color="{StaticResource SidebarColor}"/>
 
     <!-- Header -->
-    <Color x:Key="HeaderColor">#007ACC</Color>
+    <Color x:Key="HeaderColor">#2C3E50</Color>
+    <!-- Blue Gray 800 -->
     <SolidColorBrush x:Key="HeaderBrush" Color="{StaticResource HeaderColor}"/>
+
 
     <!-- Footer -->
     <Color x:Key="FooterColor">#F1F1F1</Color>

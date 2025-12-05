@@ -6,17 +6,20 @@
              mc:Ignorable="d">
 
     <Grid Background="{StaticResource HeaderBrush}" Height="50">
+        <!-- Flat primary color for header -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
+        <!-- Logo -->
         <Image Source="/Resources/Icons/AppLogo.png"
-       Width="40" Height="40"
-       Stretch="Uniform"
-       VerticalAlignment="Center"
-       HorizontalAlignment="Left"/>
+               Width="40" Height="40"
+               Stretch="Uniform"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Margin="10,0"/>
 
         <!-- TITLE -->
         <TextBlock Grid.Column="1"
@@ -25,6 +28,7 @@
                    FontWeight="Bold"
                    FontSize="20"
                    VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
                    Margin="10,0"/>
 
         <!-- USER BUTTON -->
@@ -50,10 +54,10 @@
                StaysOpen="False"
                AllowsTransparency="True">
             <Border Background="#2D2D30"
-                    BorderBrush="#4A4A4A"
+                    BorderBrush="#555"
                     BorderThickness="1"
                     Padding="10"
-                    CornerRadius="6"
+                    CornerRadius="4"
                     Margin="0,5">
                 <StackPanel Width="200">
                     <TextBlock Text="User Details"
@@ -62,7 +66,7 @@
                                FontSize="16"
                                Margin="0,0,0,8"/>
 
-                    <TextBlock Text="{Binding AdminProfile.Name,Mode=TwoWay, StringFormat=Name: {0}, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="0,3"/>
+                    <TextBlock Text="{Binding AdminProfile.Name,Mode=TwoWay, StringFormat=Name: {0}}" Foreground="White" Margin="0,3"/>
                     <TextBlock Text="{Binding AdminProfile.Email, Mode=TwoWay, StringFormat=Email: {0}}" Foreground="White" Margin="0,3"/>
                     <TextBlock Text="{Binding AdminProfile.MessName, Mode=TwoWay, StringFormat=Mess Name: {0}}" Foreground="White" Margin="0,3"/>
                     <TextBlock Text="{Binding AdminProfile.Address, Mode=TwoWay, StringFormat=Address: {0}}" Foreground="White" Margin="0,3"/>
@@ -71,13 +75,15 @@
                     <TextBlock Text="{Binding AdminProfile.Price,Mode=TwoWay, StringFormat=Price: {0:C}}" Foreground="White" Margin="0,3"/>
                     <TextBlock Text="{Binding AdminProfile.SubscriptionExpiry,Mode=TwoWay, StringFormat=Expiry: {0:dd/MM/yyyy}}" Foreground="White" Margin="0,3"/>
 
-                    <Separator Margin="0,10"/>
+                    <Separator Margin="0,10" Background="#555"/>
                     <Button Content="Logout"
                             Width="100"
-                            Background="#444"
+                            Background="#2196F3"
                             Foreground="White"
+                            BorderThickness="0"
                             HorizontalAlignment="Left"
-                            Margin="0,5"/>
+                            Margin="0,5"
+                            Cursor="Hand"/>
                 </StackPanel>
             </Border>
         </Popup>

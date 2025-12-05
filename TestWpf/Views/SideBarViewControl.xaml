@@ -3,29 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <UserControl.Resources>
-        <!-- Flat sidebar button style -->
+        <!-- 2D Flat Sidebar Button Style -->
         <Style x:Key="FlatMenuButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Padding" Value="12,6"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="5"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                         <ControlTemplate.Triggers>
+                            <!-- Hover effect -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#E6FFFFFF"/>
-                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="#3399FF"/>
+                                <Setter Property="Foreground" Value="White"/>
                             </Trigger>
+                            <!-- Pressed effect -->
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="#CCFFFFFF"/>
-                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="#2673CC"/>
+                                <Setter Property="Foreground" Value="White"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -34,22 +40,25 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Background="DarkSlateGray" MinWidth="150">
+    <StackPanel Background="#2C3E50" MinWidth="150" >
         <TextBlock Text="Menu" Foreground="White" FontSize="16" Margin="10,5" FontWeight="Bold"/>
+
         <!-- Dynamically generate buttons from MenuItems -->
         <ItemsControl ItemsSource="{Binding MenuItems}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button 
-                    Content="{Binding Title}"
-                    Command="{Binding DataContext.OpenTabCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                    CommandParameter="{Binding}">
+                        Content="{Binding Title}"
+                        Command="{Binding DataContext.OpenTabCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        CommandParameter="{Binding}">
                         <Button.Style>
                             <Style TargetType="Button" BasedOn="{StaticResource FlatMenuButton}">
                                 <Style.Triggers>
+                                    <!-- Selected state -->
                                     <DataTrigger Binding="{Binding IsSelected}" Value="True">
                                         <Setter Property="Background" Value="#FF3399FF"/>
                                         <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>

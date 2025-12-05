@@ -11,10 +11,33 @@
 
         <views:SideBarViewControl Grid.Column="0" DataContext="{Binding SideBarViewModel, Mode=TwoWay}" />
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext" ShowsPreview="True" Cursor="SizeWE"/>
-        <TabControl Grid.Column="2" ItemsSource="{Binding Tabs}" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <TabControl Grid.Column="2" ItemsSource="{Binding Tabs}" 
+            SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Padding="5" Text="{Binding Header}" />
+                    <Border CornerRadius="4" Margin="2" Padding="6,4" Background="#E0E0E0">
+                        <Grid>
+                            <TextBlock Text="{Binding Header}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontWeight="SemiBold" Foreground="#333333"/>
+                        </Grid>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="#E0E0E0"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <!-- Selected tab -->
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=TabItem}, Path=IsSelected}" Value="True">
+                                        <Setter Property="Background" Value="#2196F3"/>
+                                    </DataTrigger>
+                                    <!-- Hover effect -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BBDEFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>

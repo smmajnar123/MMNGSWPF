@@ -7,19 +7,32 @@
         xmlns:views="clr-namespace:TestWpf.Views"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
-       Title="{x:Static local:MMNGSAppText.AppName}" Height="260" Width="420">
+        Title="{x:Static local:MMNGSAppText.AppName}" Height="260" Width="420"
+        Background="#F0F0F0">
 
-    <Grid Background="{StaticResource PrimaryBrush}" Margin="0">
+    <Grid Background="#F0F0F0" Margin="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" ></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <views:HeaderViewControl DataContext="{Binding HeaderViewModel, Mode=TwoWay}" Grid.Row="0"/>
-        <views:MainViewControl DataContext="{Binding MainViewModel}" Grid.Row="1" ></views:MainViewControl>
-        <views:FooterViewControl Grid.Row="2" ></views:FooterViewControl>
+
+        <!-- Header with subtle flat background -->
+        <Border Grid.Row="0" Background="#2196F3" Padding="0">
+            <views:HeaderViewControl DataContext="{Binding HeaderViewModel, Mode=TwoWay}" />
+        </Border>
+
+        <!-- Main content with flat 2D panel -->
+        <Border Grid.Row="1" Background="#FFFFFF" Margin="5" Padding="5" CornerRadius="4" BorderBrush="#DDDDDD" BorderThickness="1">
+            <views:MainViewControl DataContext="{Binding MainViewModel}" />
+        </Border>
+
+        <!-- Footer with flat 2D style -->
+        <Border Grid.Row="2" Background="#ECECEC" Padding="5">
+            <views:FooterViewControl />
+        </Border>
     </Grid>
 </Window>
